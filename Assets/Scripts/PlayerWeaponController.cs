@@ -15,16 +15,46 @@ public class PlayerWeaponController : MonoBehaviour
     void Start()
     {
         activeWeaponIndex = -1;
+
+        foreach(WeaponController startingWeapons in startingWeapons)
+        {
+            AddWeapon(startingWeapons);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SwitchWeapon(0);
+        }
     }
+
+    private void SwitchWeapon(int p_weaponIndex)
+    {
+        if(p_weaponIndex != activeWeaponIndex && p_weaponIndex >= 0)
+        {
+            weaponSlots[p_weaponIndex].gameObject.SetActive(true);
+            activeWeaponIndex = p_weaponIndex;
+        }
+    }
+
 
     private void AddWeapon(WeaponController p_weaponPrefab)
     {
         weaponParentSocket.position = defaultWeaponPosition.position;
+        for(int i = 0; i < weaponSlots.Length; i++)
+        {
+            if (weaponSlots[i] == null)
+            {
+                WeaponController weaponClone = Instantiate(p_weaponPrefab,weaponParentSocket);
+                weaponClone.gameObject.SetActive(false);
+
+                weaponClone.transform.localPosition = Vector3.zero;
+                weaponSlots[i] = weaponClone;
+                return;
+            }
+        }
     }
 }

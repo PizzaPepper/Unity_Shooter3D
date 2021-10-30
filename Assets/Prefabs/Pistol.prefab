@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6006290646645937396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boquilla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8996632354074201953}
   - component: {fileID: 6574835701784902571}
   - component: {fileID: 2042917911717756828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
